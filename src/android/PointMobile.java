@@ -93,7 +93,9 @@ public class PointMobile extends CordovaPlugin {
 
     @Override
     public boolean execute(String action, JSONArray args, CallbackContext callbackContext) throws JSONException {
-        if (action.equals("scan")) {
+        if (action.equals("initdevice")) {
+            mScanner.aDecodeSetTriggerEnable(1);
+        } else if (action.equals("scan")) {
             this.callbackContext = callbackContext;
             mScanner.aDecodeSetTriggerOn(1);
         } else if (action.equals("cancel")) {
